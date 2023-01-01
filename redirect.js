@@ -5,15 +5,15 @@
         var link = desktopElement.getAttribute('href');
         if (link.indexOf("toggle_view_desktop") != -1) {
             window.location.replace(
-                link.replace('=zh', '=zh-cn')
-                    .replace('=zh-hans', '=zh-cn')
-                    .replace('=zh-hant', '=zh-cn')
-                    .replace('=zh-cn', '=zh-cn')
-                    .replace('=zh-hk', '=zh-cn')
-                    .replace('=zh-mo', '=zh-cn')
-                    .replace('=zh-my', '=zh-cn')
-                    .replace('=zh-sg', '=zh-cn')
-                    .replace('=zh-tw', '=zh-cn'));
+                link.replace('&variant=zh', '')
+                    .replace('&variant=zh-hans', '')
+                    .replace('&variant=zh-hant', '')
+                    .replace('&variant=zh-cn', '')
+                    .replace('&variant=zh-hk', '')
+                    .replace('&variant=zh-mo', '')
+                    .replace('&variant=zh-my', '')
+                    .replace('&variant=zh-sg', '')
+                    .replace('&variant=zh-tw', ''));
             return;
         }
     }
