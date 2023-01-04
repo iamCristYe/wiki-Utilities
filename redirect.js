@@ -1,11 +1,10 @@
 (function () {
     var desktopElement = document.getElementById("mw-mf-display-toggle");
-
     if (desktopElement) {
-        var link = desktopElement.getAttribute('href');
-        if (link.indexOf("toggle_view_desktop") != -1) {
+        var href = desktopElement.getAttribute('href');
+        if (href.indexOf("toggle_view_desktop") != -1) {
             window.location.replace(
-                link.replace('&variant=zh-cn', '')
+                href.replace('&variant=zh-cn', '')
                     .replace('&variant=zh-hk', '')
                     .replace('&variant=zh-mo', '')
                     .replace('&variant=zh-my', '')
@@ -17,20 +16,21 @@
             return;
         }
     }
-
-    var href = window.location.href;
-
-    if (href.indexOf('.m.') > -1 || href.indexOf('/zh/') > -1 || href.indexOf('/zh-') > -1) {
-        window.location.replace(
-            href.replace('.m.', '.')
-                .replace('/zh-cn/', '/wiki/')
-                .replace('/zh-hk/', '/wiki/')
-                .replace('/zh-mo/', '/wiki/')
-                .replace('/zh-my/', '/wiki/')
-                .replace('/zh-sg/', '/wiki/')
-                .replace('/zh-tw/', '/wiki/')
-                .replace('/zh-hans/', '/wiki/')
-                .replace('/zh-hant/', '/wiki/')
-                .replace('/zh/', '/wiki/'));
+    else {
+        var href = window.location.href;
+        if (href.indexOf('.m.') > -1 || href.indexOf('/zh/') > -1 || href.indexOf('/zh-') > -1) {
+            window.location.replace(
+                href.replace('.m.', '.')
+                    .replace('/zh-cn/', '/wiki/')
+                    .replace('/zh-hk/', '/wiki/')
+                    .replace('/zh-mo/', '/wiki/')
+                    .replace('/zh-my/', '/wiki/')
+                    .replace('/zh-sg/', '/wiki/')
+                    .replace('/zh-tw/', '/wiki/')
+                    .replace('/zh-hans/', '/wiki/')
+                    .replace('/zh-hant/', '/wiki/')
+                    .replace('/zh/', '/wiki/'));
+            return;
+        }
     }
 })()
