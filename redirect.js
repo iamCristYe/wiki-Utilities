@@ -33,4 +33,8 @@
             return;
         }
     }
+    document.querySelector("#personal>h2").innerText = ""
 })()
+
+
+
