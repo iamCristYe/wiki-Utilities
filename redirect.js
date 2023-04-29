@@ -33,16 +33,17 @@
             return;
         }
     }
-    document.querySelector("#personal>h2").innerText = ""
-    
-geoList = document.querySelectorAll(".external")
-for (let i = 0; i < geoList.length; i++) {
-    if (geoList[i].href.indexOf("geohack.toolforge.org") > 0) {
-        let link = new URL(geoList[i].href)
-        geoList[i].href = "https://www.google.com/maps/place/" + link.searchParams.get("params").replace(/_/g, " ")
+    document.querySelector("#personal>h2").innerText = "";
+
+    var geoList = document.querySelectorAll(".external");
+    var i = 0;
+    for (i = 0; i < geoList.length; i++) {
+        if (geoList[i].href.indexOf("geohack.toolforge.org") > 0) {
+            var link = new URL(geoList[i].href);
+            var regex = /[\d\s\.]*[NS][\d\s\.]*[EW]/g;
+            var found = link.searchParams.get("params").replace(/_/g, " ").match(regex);
+            geoList[i].href = "https://www.google.com/maps/place/" + found;
+        }
     }
-}
-})()
-
-
+})();
 
