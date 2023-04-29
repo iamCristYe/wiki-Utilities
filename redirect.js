@@ -34,6 +34,14 @@
         }
     }
     document.querySelector("#personal>h2").innerText = ""
+    
+geoList = document.querySelectorAll(".external")
+for (let i = 0; i < geoList.length; i++) {
+    if (geoList[i].href.indexOf("geohack.toolforge.org") > 0) {
+        let link = new URL(geoList[i].href)
+        geoList[i].href = "https://www.google.com/maps/place/" + link.searchParams.get("params").replace(/_/g, " ")
+    }
+}
 })()
 
 
